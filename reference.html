@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>ИЭТР - Справочная информация</title>
+    <style>
+        /* Общие стили из главной страницы */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 40px;
+            background: linear-gradient(160deg, #f8f9fa 0%, #e9ecef 100%);
+            min-height: 100vh;
+        }
+        nav {
+            margin-bottom: 30px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+        nav a {
+            margin-right: 25px;
+            text-decoration: none;
+            color: #2d4059;
+            font-weight: 500;
+            padding: 8px 15px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        nav a:hover {
+            background: #dee2e6;
+            color: #212529;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+        
+        /* Стили для справочника */
+        .reference-card {
+            background: white;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            padding: 25px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+        .card-title {
+            color: #2d4059;
+            font-size: 1.2em;
+            margin-bottom: 15px;
+            border-left: 4px solid #4a6572;
+            padding-left: 15px;
+        }
+        .card-content {
+            line-height: 1.6;
+            color: #4a4a4a;
+        }
+.server-image {
+    width: 5%;
+    max-width: 400px;
+    margin: 15px auto;
+    display: block;
+}
+        .highlight {
+            background: #e3f2fd;
+            padding: 10px 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Справочная информация по серверной инфраструктуре</h1>
+        <h2>ООО «Стилет»</h2>
+    </header>
+
+    <nav>
+        <a href="index.html">Главная</a>
+        <a href="maintenance.html">Регламентные работы</a>
+        <a href="troubleshooting.html">Устранение неисправностей</a>
+        <a href="reference.html">Справочная информация</a>
+    </nav>
+
+    <div class="content-wrapper">
+        <!-- Блок с изображением сервера -->
+<div class="reference-card">
+    <img src="server-scheme.png" class="server-image" alt="Изображение сервера">
+    <div class="card-content" style="text-align: center;">
+        <p>Рис. 1 - Архитектура серверного оборудования</p>
+    </div>
+</div>
+
+        <!-- Карточки с информацией -->
+        <div class="reference-card">
+            <div class="card-title">Критерии построения ЛВС</div>
+            <div class="card-content">
+                <ul>
+                    <li>Использование оборудования уровня Enterprise</li>
+                    <li>Резервирование каналов связи</li>
+                    <li>Сегментация сети на VLAN</li>
+                    <li>Мониторинг трафика в реальном времени</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="reference-card">
+            <div class="card-title">Безопасность Wi-Fi</div>
+            <div class="card-content">
+                <div class="highlight">Рекомендуемые настройки:</div>
+                <ul>
+                    <li>Шифрование: WPA3-Enterprise</li>
+                    <li>Скрытие SSID</li>
+                    <li>MAC-фильтрация</li>
+                    <li>Гостевой доступ через отдельную VLAN</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="reference-card">
+            <div class="card-title">Виртуализация сети</div>
+            <div class="card-content">
+                <p>Используемые технологии:</p>
+                <ul>
+                    <li>VMware NSX</li>
+                    <li>Контейнеризация Docker</li>
+                    <li>Программно-определяемые сети (SDN)</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="reference-card">
+            <div class="card-title">Расположение оборудования</div>
+            <div class="card-content">
+                <ul>
+                    <li>Серверная комната: 3 этаж, комната 305</li>
+                    <li>Температурный режим: 18-22°C</li>
+                    <li>ИБП: APC Smart-UPS 5000VA</li>
+                    <li>Резервный генератор: Cummins 100кВт</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

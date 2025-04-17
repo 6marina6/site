@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>ИЭТР - Регламентные работы</title>
+    <style>
+        /* Общие стили из главной страницы */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 40px;
+            background: linear-gradient(160deg, #f8f9fa 0%, #e9ecef 100%);
+            min-height: 100vh;
+        }
+        nav {
+            margin-bottom: 30px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+        nav a {
+            margin-right: 25px;
+            text-decoration: none;
+            color: #2d4059;
+            font-weight: 500;
+            padding: 8px 15px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        nav a:hover {
+            background: #dee2e6;
+            color: #212529;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+        h1 {
+            color: #2d4059;
+            margin-bottom: 15px;
+            font-size: 2.2em;
+        }
+        
+        /* Стили для таблицы */
+        .schedule-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+        }
+        .schedule-table th,
+        .schedule-table td {
+            padding: 15px 20px;
+            text-align: left;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .schedule-table th {
+            background: #2d4059;
+            color: white;
+            font-weight: 600;
+        }
+        .schedule-table tr:hover {
+            background: #f8f9fa;
+        }
+        .periodicity {
+            white-space: nowrap;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Регламентные работы серверной инфраструктуры</h1>
+        <h2>ООО «Стилет»</h2>
+    </header>
+
+    <nav>
+        <a href="index.html">Главная</a>
+        <a href="maintenance.html">Регламентные работы</a>
+        <a href="troubleshooting.html">Устранение неисправностей</a>
+        <a href="reference.html">Справочная информация</a>
+    </nav>
+
+    <div class="content-wrapper">
+        <table class="schedule-table">
+            <thead>
+                <tr>
+                    <th>Название работы</th>
+                    <th class="periodicity">Периодичность</th>
+                    <th>Описание</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Управление сетью и серверами</td>
+                    <td>Ежедневно</td>
+                    <td>Регулярное управление и обслуживание серверов и сетевого оборудования</td>
+                </tr>
+                <tr>
+                    <td>Безопасность и защита данных</td>
+                    <td>1 раз в неделю</td>
+                    <td>Обеспечение безопасности системы и данных для поддержания конфиденциальности</td>
+                </tr>
+                <tr>
+                    <td>Обновление ПО</td>
+                    <td>1 раз в месяц</td>
+                    <td>Обновление программ и ОС для поддержания актуальности и безопасности</td>
+                </tr>
+                <tr>
+                    <td>Документация</td>
+                    <td>1 раз в год</td>
+                    <td>Обновление документации для отражения изменений в системе</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>ИЭТР - Устранение неисправностей</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 40px;
+            background: linear-gradient(160deg, #f8f9fa 0%, #e9ecef 100%);
+            min-height: 100vh;
+        }
+        nav {
+            margin-bottom: 30px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+        nav a {
+            margin-right: 25px;
+            text-decoration: none;
+            color: #2d4059;
+            font-weight: 500;
+            padding: 8px 15px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        nav a:hover {
+            background: #dee2e6;
+            color: #212529;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+        .content {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+        a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .final-step {
+            font-weight: bold;
+            color: #1e7e34;
+        }
+        .error-step {
+            font-weight: bold;
+            color: #c82333;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Устранение неисправностей сервера</h1>
+        <h2>Интерактивное руководство по диагностике</h2>
+    </header>
+
+    <nav>
+        <a href="index.html">Главная</a>
+        <a href="maintenance.html">Регламентные работы</a>
+        <a href="troubleshooting.html">Устранение неисправностей</a>
+        <a href="reference.html">Справочная информация</a>
+    </nav>
+
+    <div class="content">
+        <h1>Выберите проблему для начала диагностики:</h1>
+        <button class="button" onclick="startDiagnosis('power')">Не включается сервер</button>
+        <button class="button" onclick="startDiagnosis('data')">Ошибка чтения/записи данных</button>
+        <button class="button" onclick="startDiagnosis('network')">Отсутствие подключения к сети</button>
+        <button class="button" onclick="startDiagnosis('update')">Ошибка загрузки обновления ПО</button>
+        <div id="diagnosis" style="margin-top: 20px;"></div>
+        <p><a href="index.html">Вернуться на главную страницу</a></p>
+    </div>
+
+    <script>
+        function startDiagnosis(problem) {
+            const diagnosisDiv = document.getElementById('diagnosis');
+            diagnosisDiv.innerHTML = '';
+            showStep(problem, 1);
+        }
+
+        function showStep(problem, step) {
+            const diagnosisDiv = document.getElementById('diagnosis');
+            diagnosisDiv.innerHTML = '';
+
+            if (problem === 'power') {
+                if (step === 1) {
+                    diagnosisDiv.innerHTML = `
+                        <h3>Диагностика: Не включается сервер</h3>
+                        <p>Подключен ли сервер к электросети?</p>
+                        <button class="button" onclick="nextStep('power', 1, 'yes')">Да</button>
+                        <button class="button" onclick="nextStep('power', 1, 'no')">Нет</button>
+                    `;
+                } else if (step === 2) {
+                    diagnosisDiv.innerHTML = `
+                        <h3>Диагностика: Не включается сервер</h3>
+                        <p>Исправен ли кабель питания?</p>
+                        <button class="button" onclick="nextStep('power', 2, 'yes')">Да</button>
+                        <button class="button" onclick="nextStep('power', 2, 'no')">Нет</button>
+                    `;
+                } else if (step === 3) {
+                    diagnosisDiv.innerHTML = `
+                        <h3>Диагностика: Не включается сервер</h3>
+                        <p>Проведена ли диагностика блока питания?</p>
+                        <button class="button" onclick="nextStep('power', 3, 'yes')">Да</button>
+                        <button class="button" onclick="nextStep('power', 3, 'no')">Нет</button>
+                    `;
+                } else if (step === 4) {
+                    diagnosisDiv.innerHTML = `
+                        <h3>Диагностика: Не включается сервер</h3>
+                        <p class="error-step">Обратитесь в технический отдел для замены блока питания.</p>
+                    `;
+                }
+            } else if (problem === 'data') {
+                if (step === 1) {
+                    diagnosisDiv.innerHTML = `
+                        <h3>Диагностика: Ошибка чтения/записи данных</h3>
+                        <p>Горят ли индикаторы жестких дисков?</p>
+                        <button class="button" onclick="nextStep('data', 1, 'yes')">Да</button>
+                        <button class="button" onclick="nextStep('data', 1, 'no')">Нет</button>
+                    `;
+                } else if (step === 2) {
+                    diagnosisDiv.innerHTML = `
+                        <h3>Диагностика: Ошибка чтения/записи данных</h3>
+                        <p>Выполнена ли проверка файловой системы?</p>
+                        <button class="button" onclick="nextStep('data', 2, 'yes')">Да</button>
+                        <button class="button" onclick="nextStep('data', 2, 'no')">Нет</button>
+                    `;
+                } else if (step === 3) {
+                    diagnosisDiv.innerHTML = `
+                        <h3>Диагностика: Ошибка чтения/записи данных</h3>
+                        <p class="final-step">Проблема решена. Данные читаются и записываются корректно.</p>
+                    `;
+                } else if (step === 4) {
+                    diagnosisDiv.innerHTML = `
+                        <h3>Диагностика: Ошибка чтения/записи данных</h3>
+                        <p class="error-step">Обратитесь в технический отдел для замены жесткого диска.</p>
+                    `;
+                }
+            } else if (problem === 'network') {
+                if (step === 1) {
+                    diagnosisDiv.innerHTML = `
+                        <h3>Диагностика: Отсутствие подключения к сети</h3>
+                        <p>Подключены ли все сетевые кабели?</p>
+                        <button class="button" onclick="nextStep('network', 1, 'yes')">Да</button>
+                        <button class="button" onclick="nextStep('network', 1, 'no')">Нет</button>
+                    `;
+                } else if (step === 2) {
+                    diagnosisDiv.innerHTML = `
+                        <h3>Диагностика: Отсутствие подключения к сети</h3>
+                        <p>Перезагружен ли сетевой коммутатор?</p>
+                        <button class="button" onclick="nextStep('network', 2, 'yes')">Да</button>
+                        <button class="button" onclick="nextStep('network', 2, 'no')">Нет</button>
+                    `;
+                } else if (step === 3) {
+                    diagnosisDiv.innerHTML = `
+                        <h3>Диагностика: Отсутствие подключения к сети</h3>
+                        <p class="final-step">Проблема решена. Сеть работает корректно.</p>
+                    `;
+                } else if (step === 4) {
+                    diagnosisDiv.innerHTML = `
+                        <h3>Диагностика: Отсутствие подключения к сети</h3>
+                        <p class="error-step">Обратитесь в технический отдел для замены сетевой карты.</p>
+                    `;
+                }
+            } else if (problem === 'update') {
+                if (step === 1) {
+                    diagnosisDiv.innerHTML = `
+                        <h3>Диагностика: Ошибка загрузки обновления ПО</h3>
+                        <p>Есть ли подключение к интернету?</p>
+                        <button class="button" onclick="nextStep('update', 1, 'yes')">Да</button>
+                        <button class="button" onclick="nextStep('update', 1, 'no')">Нет</button>
+                    `;
+                } else if (step === 2) {
+                    diagnosisDiv.innerHTML = `
+                        <h3>Диагностика: Ошибка загрузки обновления ПО</h3>
+                        <p>Освобождено ли место на системном диске?</p>
+                        <button class="button" onclick="nextStep('update', 2, 'yes')">Да</button>
+                        <button class="button" onclick="nextStep('update', 2, 'no')">Нет</button>
+                    `;
+                } else if (step === 3) {
+                    diagnosisDiv.innerHTML = `
+                        <h3>Диагностика: Ошибка загрузки обновления ПО</h3>
+                        <p class="final-step">Проблема решена. Обновление успешно установлено.</p>
+                    `;
+                } else if (step === 4) {
+                    diagnosisDiv.innerHTML = `
+                        <h3>Диагностика: Ошибка загрузки обновления ПО</h3>
+                        <p class="error-step">Обратитесь в технический отдел для анализа ошибки.</p>
+                    `;
+                }
+            }
+        }
+
+        function nextStep(problem, step, answer) {
+            const diagnosisDiv = document.getElementById('diagnosis');
+            diagnosisDiv.innerHTML = '';
+
+            if (problem === 'power') {
+                if (step === 1 && answer === 'no') {
+                    diagnosisDiv.innerHTML = `
+                        <p>Подключите сервер к электросети и попробуйте снова.</p>
+                        <p>Помогло ли это?</p>
+                        <button class="button" onclick="problemResolved()">Да</button>
+                        <button class="button" onclick="showStep('power', 2)">Нет</button>
+                    `;
+                } else if (step === 2 && answer === 'no') {
+                    diagnosisDiv.innerHTML = `
+                        <p>Замените кабель питания и попробуйте снова.</p>
+                        <p>Помогло ли это?</p>
+                        <button class="button" onclick="problemResolved()">Да</button>
+                        <button class="button" onclick="showStep('power', 3)">Нет</button>
+                    `;
+                } else if (step === 3 && answer === 'no') {
+                    showStep('power', 4);
+                } else {
+                    showStep(problem, step + 1);
+                }
+            } else if (problem === 'data') {
+                if (step === 1 && answer === 'no') {
+                    diagnosisDiv.innerHTML = `
+                        <p>Проверьте подключение жестких дисков и попробуйте снова.</p>
+                        <p>Помогло ли это?</p>
+                        <button class="button" onclick="problemResolved()">Да</button>
+                        <button class="button" onclick="showStep('data', 2)">Нет</button>
+                    `;
+                } else if (step === 2 && answer === 'no') {
+                    showStep('data', 4);
+                } else {
+                    showStep(problem, step + 1);
+                }
+            } else if (problem === 'network') {
+                if (step === 1 && answer === 'no') {
+                    diagnosisDiv.innerHTML = `
+                        <p>Подключите все сетевые кабели и попробуйте снова.</p>
+                        <p>Помогло ли это?</p>
+                        <button class="button" onclick="problemResolved()">Да</button>
+                        <button class="button" onclick="showStep('network', 2)">Нет</button>
+                    `;
+                } else if (step === 2 && answer === 'no') {
+                    showStep('network', 4);
+                } else {
+                    showStep(problem, step + 1);
+                }
+            } else if (problem === 'update') {
+                if (step === 1 && answer === 'no') {
+                    diagnosisDiv.innerHTML = `
+                        <p>Подключитесь к интернету и попробуйте снова.</p>
+                        <p>Помогло ли это?</p>
+                        <button class="button" onclick="problemResolved()">Да</button>
+                        <button class="button" onclick="showStep('update', 2)">Нет</button>
+                    `;
+                } else if (step === 2 && answer === 'no') {
+                    diagnosisDiv.innerHTML = `
+                        <p>Освободите место на системном диске и попробуйте снова.</p>
+                        <p>Помогло ли это?</p>
+                        <button class="button" onclick="problemResolved()">Да</button>
+                        <button class="button" onclick="showStep('update', 3)">Нет</button>
+                    `;
+                } else {
+                    showStep(problem, step + 1);
+                }
+            }
+        }
+
+        function problemResolved() {
+            const diagnosisDiv = document.getElementById('diagnosis');
+            diagnosisDiv.innerHTML = `<p class="final-step">Проблема успешно устранена!</p>`;
+        }
+    </script>
+</body>
+</html>
